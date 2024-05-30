@@ -47,12 +47,13 @@ def employee_register(request):
 
 @api_view(['POST'])
 def custom_auth_token(request):
+    print(request.data)
     if request.method == 'POST':
         serializer = AuthTokenSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
         token, created = Token.objects.get_or_create(user=user)
-        return Response({'token': token.key, 'user_id': user.pk, 'email': user.email})
+        return Response({'token': token.key, 'role': user.role})
     else:
         raise AuthenticationFailed(detail='Method Not Allowed', code=status.HTTP_405_METHOD_NOT_ALLOWED)
     

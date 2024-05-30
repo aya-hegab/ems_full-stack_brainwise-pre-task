@@ -72,9 +72,8 @@ class EmployeeRegisterSerializer(serializers.ModelSerializer):
         name = validated_data.pop('name')
         role = validated_data.pop('role')
 
-        user = User(email=email)
-        user.set_password(password)
         user = User(email=email, role=role)
+        user.set_password(password)
         user.save()
 
         employee = Employee(
