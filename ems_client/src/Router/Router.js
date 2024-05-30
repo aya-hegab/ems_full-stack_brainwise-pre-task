@@ -6,12 +6,14 @@ import { Suspense } from "react";
 
 // const Cart = React.lazy(() => import("../pages/Cart"));
 const Base = React.lazy(() => import("../pages/Base"));
+const Login = React.lazy(() => import("../pages/Login"));
 
 const Router = () => {
   return (
     <Suspense fallback={<h5>Loading.........</h5>}>
       <Routes>
-        <Route path="/" element={<Base />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/base" element={<Base />} />
         {/* <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="productDetails/:id" element={<ProductDetails />} />

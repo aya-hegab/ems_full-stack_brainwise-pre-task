@@ -2,7 +2,8 @@
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import Router from "./Router/Router";
-import "bootstrap/dist/js/bootstrap.bundle.min";
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
